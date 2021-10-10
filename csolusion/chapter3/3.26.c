@@ -1,21 +1,24 @@
 #include<stdio.h>
 int main()
 {
-    int i, num[10], max1 = num[1], max2 = num[0];
-    for(i = 0; i <=9; i++)
+    int i, num[10], j;
+    for(i = 0; i <= 9; i++)
     {
         printf("Enter a number: ");
         scanf("%d", &num[i]);
-        if(num[i] > max1)
+    }
+    for(i = 0; i <= 8; i++)
+    {
+        for(j = 0; j <= 8; j++)
         {
-            max1 = num[i];
-            continue;
-        }
-        if(num[i] > max2)
-        {
-            max2 = num[i];
+            if(num[j]>num[j+1])
+            {
+                int temp = num[j];
+                num[j] = num[j+1];
+                num[j+1] = temp;
+            }
         }
     }
-    printf("The max1 and max2 number are %d and %d\n", max1, max2);
+    printf("The two of the largest number are %d and %d\n", num[8], num[9]);
     return 0;
 }
