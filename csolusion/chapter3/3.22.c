@@ -1,7 +1,7 @@
 #include<stdio.h>
 int main()
 {
-    int num, i, counter = 0;
+    int num, i;
     while(1)
     {
         printf("Enter a number(-1 to end): ");
@@ -10,6 +10,7 @@ int main()
         {
             break;
         }
+        int counter = 0;
         for(i = 1; i < num; i++)
         {
             if(num % i == 0)
