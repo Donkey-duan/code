@@ -33,7 +33,6 @@ int main()
             break;
         }
         int ans = compute1st(parentheses, chr1, chr2);
-        printf("ans=%d\n", ans);
         if(num == ans)
         {
             score++;
