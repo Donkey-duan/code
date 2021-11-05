@@ -7,7 +7,7 @@ char opera(void);//隨機運算子產生
 int compute1st(int, char, char);//替換運算子至數字且判定運算順序
 int compute2nd(int, int, int);//進行運算
  
-char arr[4]={'+','-','*','^'};
+char arr[4]={'+','-','*','^'};//全域變數
 int main()
 {
     srand(time(NULL));
