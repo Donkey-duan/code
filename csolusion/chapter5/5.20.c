@@ -4,7 +4,6 @@ int main()
 {
     int side1, side2;
     char chr;
-    printf("Enter a char:");
     scanf("%c", &chr);
     printf("Enter the sides:");
     scanf("%d%d", &side1, &side2);
