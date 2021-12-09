@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 int main()
-{//還在想
+{
     char ox[3][4];
     int counter = 0;
     scanf("%4s%4s%4s", ox[0],ox[1],ox[2]);
