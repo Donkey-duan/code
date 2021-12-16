@@ -4,27 +4,28 @@
 int main()
 {
     srand(time(NULL));
-    int number = rand() % 1000 + 1;
-    int guess;
     printf("I have a number between 1 and 1000.\n");
     printf("Can you guess my number?\n");
     printf("Please type your first guess.\n");
-    while(1)
-    {
-        scanf("%d", &guess);
-        if(guess == number)
+        int number = rand() % 10 + 1;
+        int guess;
+        while(1)
         {
-            printf("Excellent! You guessed the number!\n");
-            break;
+            scanf("%d", &guess);
+            if(guess == number)
+            {
+                printf("Excellent! You guessed the number!\n");
+                printf("Would you want to play again?(y or n)\n");
+                break;
+            }
+            else if(guess < number)
+            {
+                printf("Too low. Try again.\n");
+            }
+            else if(guess > number)
+            {
+                printf("Too high. Try again.\n");
+            }
         }
-        if(guess < number)
-        {
-            printf("Too low. Try again.\n");
-        }
-        else
-        {
-            printf("Too high. Try again.\n");
-        }
-    }
-    return 0;
+        return 0;
 }
