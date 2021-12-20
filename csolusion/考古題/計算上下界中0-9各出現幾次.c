@@ -1,6 +1,6 @@
 #include<stdio.h>
 int main()
-{//還沒好
+{
     int num1, num2;
     int a[20]={0};
     scanf("%d %d", &num1, &num2);
