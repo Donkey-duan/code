@@ -14,7 +14,6 @@ int main()
         else
         {
             printf("%c",arr[(tmp&15)%10]);
-            num>>(4*(i-1));
         }
     }
     return 0;
