@@ -6,5 +6,9 @@ int main()
     scanf("%20s", number);
     char *pch = strtok(number, "()-");
     printf("%s\n",pch);
+    pch = strtok(NULL, " ()-");
+    printf("%s\n",pch);
+    pch = strtok(NULL, " ()-");
+    printf("%s\n",pch);
     return 0;
 }
