@@ -1,16 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
- 
-int **create_2d_arr(int n, int m) {
-    // create 2d array using malloc than return it.
-    int **ptr = malloc(n*sizeof(int *));
+
+int main() 
+{
+    int n,m;
+    scanf("%d%d",&n,&m);
+    int **ptr = (int **)malloc(n*sizeof(int *));
     for(int i = 0;i<n;i++)
     {
-        *ptr[i] = malloc(m*sizeof(int));
+        ptr[i] = (int *)malloc(m*sizeof(int));
     }
-    return ptr;
-}
-int main() {
-    
+    for(int i = 0;i<n;i++)
+    {
+        for(int j = 0;j<m;j++)
+        {
+            ptr[i][j] = (i+1)*(j+1);
+            printf("%d\t",ptr[i][j]);
+        }
+        puts("");
+    }
+    free(ptr);
 }
