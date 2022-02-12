@@ -7,9 +7,10 @@ int main()
     int n,m;
     scanf("%d%d",&n,&m);
     int **ptr = (int **)malloc(n*sizeof(int *));
-    for(int i = 0;i<n;i++)
+    int *pPtr = (int *)malloc(n*sizeof(int));
+    for(int i = 0;i<n;i++,pPtr+=n)
     {
-        ptr[i] = (int *)malloc(m*sizeof(int));
+        ptr[i] = pPtr;
     }
     for(int i = 0;i<n;i++)
     {
@@ -20,5 +21,6 @@ int main()
         }
         puts("");
     }
+    free(ptr[0]);
     free(ptr);
 }
