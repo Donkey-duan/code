@@ -45,19 +45,17 @@ struct node *list_delete(struct node *head,int data){
     int count = 0;
     while(cur->next!=NULL){
         if(cur->data == data){
-            struct node *cur_next = cur->next;
+            struct node *temp = cur;
             cur_prev->next = cur;
             cur_prev->next = cur->next;
-            free(cur);
+            cur = cur->next;
+            free(temp);
             count++;
         }
         cur = cur->next;
     }
     if(count == 0){
         printf("We didn't find the data.\n");
-    }
-    if(head==NULL){
-        return cur;
     }
     return head;
 }
