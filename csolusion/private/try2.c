@@ -1,26 +1,26 @@
 #include<stdio.h>
 #include<stdlib.h>
-
+ 
 struct node{
     int data;
     struct node *next,*prev;
 };
-
+ 
 struct node *list_add(struct node *head,int data);
-struct node *list_delete(struct node *head,int data);
+struct node *list_delete_value(struct node *head,int data);
 void list_free(struct node *head);
-
+ 
 int main(){
    struct node *list = NULL;
-   list = list_add(list,1);
-   list = list_add(list,2);
-   list = list_delete(list,1);
-   list = list_add(list,3);
-   list = list_add(list,4);
+   list = list_add(list, 1);
+   list = list_add(list, 2);
+   list = list_delete_value(list, 1);
+   list = list_add(list, 3);
+   list = list_add(list, 4);
    list_free(list);
 }
-
-struct node *list_add(struct node *head,int data){
+ 
+struct node *list_add(struct node *head, int data){
     struct node *cur = head;
     struct node *cur_prev = head;
     while(cur!=NULL){
@@ -39,7 +39,9 @@ struct node *list_add(struct node *head,int data){
     }
     return head;
 }
-struct node *list_delete(struct node *head,int data){
+ 
+// delete all the node with data = data
+struct node *list_delete_value(struct node *head,int data){
     struct node *cur = head;
     struct node *cur_prev = head;
     int count = 0;
@@ -52,6 +54,7 @@ struct node *list_delete(struct node *head,int data){
             free(temp);
             count++;
         }
+        cur_prev = cur;
         cur = cur->next;
     }
     if(count == 0){
@@ -59,7 +62,7 @@ struct node *list_delete(struct node *head,int data){
     }
     return head;
 }
-
+ 
 void list_free(struct node *head){
     struct node *cur = head;
     while(cur!=NULL){
