@@ -1,2 +1,2 @@
 #My first python
-print('Hello world')
+print("HELLO WORLD")
