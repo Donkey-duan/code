@@ -3,7 +3,7 @@
 import random
 
 
-# 列印方法
+# print solution
 def drawBoard(board):
     # This function prints out the board that it was passed.
     # "board" is a list of 10 strings representing the board (ignore index 0)
@@ -49,12 +49,12 @@ def playAgain():
     return input().lower().startswith('y')
 
 
-# 下子
+# play
 def makeMove(board, letter, move):
     board[move] = letter
 
 
-# 判斷遊戲是否結束
+# determine whether the game is over
 def isWinner(bo, le):
     # Given a board and a player’s letter, this function returns True if that player has won.
     # We use bo instead of board and le instead of letter so we don’t have to type as much.
@@ -63,7 +63,8 @@ def isWinner(bo, le):
             (bo[1] == le and bo[2] == le and bo[3] == le) or  # across the bottom
             (bo[7] == le and bo[4] == le and bo[1] == le) or  # down the left side
             (bo[8] == le and bo[5] == le and bo[2] == le) or  # down the middle
-            (bo[9] == le and bo[6] == le and bo[3] == le) or  # down the right side
+            # down the right side
+            (bo[9] == le and bo[6] == le and bo[3] == le) or
             (bo[7] == le and bo[5] == le and bo[3] == le) or  # diagonal
             (bo[9] == le and bo[5] == le and bo[1] == le))  # diagonal
 
@@ -78,13 +79,13 @@ def getBoardCopy(board):
     return dupeBoard
 
 
-# 驗證輸入的list值是否為空
+# prove whether the list is empty
 def isSpaceFree(board, move):
     # Return true if the passed move is free on the passed board.
     return board[move] == ' '
 
 
-# 返回下子位置
+# back the position
 def getPlayerMove(board):
     # Let the player type in their move.
     move = ' '
@@ -94,44 +95,44 @@ def getPlayerMove(board):
     return int(move)
 
 
-# 從這些列表裡面隨機下
+# random play
 def chooseRandomMoveFromList(board, movesList):
     # Returns a valid move from the passed list on the passed board.
     # Returns None if there is no valid move.
     possibleMoves = []
-    # 獲取空子位置list
+    # gain the position
     for i in movesList:
         if isSpaceFree(board, i):
             possibleMoves.append(i)
-            # list不為空，隨機選一個
+            # list is not empty, random choose
     if len(possibleMoves) != 0:
         return random.choice(possibleMoves)
     else:
         return None
 
 
-# 電腦獲取下子位置
+# computer gain position
 def getComputerMove(board, computerLetter):
     # Given a board and the computer's letter, determine where to move and return that move.
     if computerLetter == 'X':
         playerLetter = 'O'
     else:
         playerLetter = 'X'
-    # 這個是機器下子的演算法
+        
     # Here is our algorithm for our Tic Tac Toe AI:
-    # 首先檢測我們下一步是否能贏
     # First, check if we can win in the next move
+    
     for i in range(1, 10):
-        # copy一份目前的下子畫板
+        # copy broad
         copy = getBoardCopy(board)
-        # 如果備份的畫板中內容不為空
+        # if the copy broad is not empty
         if isSpaceFree(copy, i):
-            # 下子
+            # play
             makeMove(copy, computerLetter, i)
-            # 如果下這個位置贏就將這個位置返回
+            # if win then back
             if isWinner(copy, computerLetter):
                 return i
-                # 檢測對手下一步是否會贏，會贏的話就堵它
+                # test whether the player would win, if do, stop player
     # Check if the player could win on their next move, and block them.
     for i in range(1, 10):
         copy = getBoardCopy(board)
@@ -146,12 +147,12 @@ def getComputerMove(board, computerLetter):
     if move != None:
         return move
 
-    # 奪取中心點
+    # gain center point
     # Try to take the center, if it is free.
     if isSpaceFree(board, 5):
         return 5
 
-    # 在最後的列表中下子
+    # play at last list
     # Move on one of the sides.
     return chooseRandomMoveFromList(board, [2, 4, 6, 8])
 
@@ -166,37 +167,36 @@ def isBoardFull(board):
 
 print('Welcome to Tic Tac Toe!')
 
-# 死迴圈，沒有
+# dead loop
 while True:
     # Reset the board
-    # 重置輸出板
     theBoard = [' '] * 10
-    # 選棋子
+    # choose chass
     playerLetter, computerLetter = inputPlayerLetter()
-    # 隨機產生誰先下
+    # random choose who play first
     turn = whoGoesFirst()
-    # 列印是誰先下
+    # print who first
     print('The ' + turn + ' will go first.')
-    # 遊戲開始
+    # game start
     gameIsPlaying = True
     while gameIsPlaying:
-        # 人先下
+        # people first
         if turn == 'player':
             # Player’s turn.
-            # 列印畫板
+            # print broad
             drawBoard(theBoard)
-            # 獲取下子位置
+            # gain play position
             move = getPlayerMove(theBoard)
-            # 下子
+            # play
             makeMove(theBoard, playerLetter, move)
-            # 判斷遊戲是否結束
+            # determine whether the game is over
             if isWinner(theBoard, playerLetter):
                 drawBoard(theBoard)
                 print('Hooray! You have won the game!')
-                # 結束遊戲
+                # game over
                 gameIsPlaying = False
             else:
-                # 驗證畫板是否畫滿
+                # prove whether the broad is drawed full
                 if isBoardFull(theBoard):
                     drawBoard(theBoard)
                     print('The game is a tie!')
@@ -206,7 +206,7 @@ while True:
 
         else:
             # Computer’s turn.
-            # 機器獲取下子位置
+            # computer gain position
             move = getComputerMove(theBoard, computerLetter)
             makeMove(theBoard, computerLetter, move)
 
@@ -221,6 +221,6 @@ while True:
                     break
                 else:
                     turn = 'player'
-    # 如果不想玩了就跳出迴圈
+    # if dont want to play then end loop
     if not playAgain():
         break
