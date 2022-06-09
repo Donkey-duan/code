@@ -1,105 +1,18 @@
 #include<iostream>
+#include<string>
 using namespace std;
 int main(){
 int t,m,d;
+string str[12]={"Aquarius","Pisces","Aries","Taurus","Gemini","Cancer","Leo","Virgo","Libra","Scorpio","Sagittrius","Capricorn"};
 cin>>t;
-for(int i=1;i<=t;i++){
-    cin>>m>>d;
-    if(m ==1){
+    for(int i=1;i<=t;i++){
+        cin>>m>>d;
         if(d<=20){
-            cout<<"Capricorn"<<endl;
+            cout<<str[m-2]<<endl;
         }
         else{
-            cout<<"Aquarius"<<endl;
+            cout<<str[m-1]<<endl;
         }
-    }
-    if(m==2){
-        if(d<=18){
-            cout<<"Aquarius"<<endl;
-        }
-        else{
-            cout<<"Pisces"<<endl;
-        }
-    }
-    if(m==3){
-        if(d<=20){
-            cout<<"Pisces"<<endl;
-        }
-        else{
-            cout<<"Aries"<<endl;
-        }
-    }
-    if(m==4){
-        if(d<=20){
-            cout<<"Aries"<<endl;
-        }
-        else{
-            cout<<"Taurus"<<endl;
-        }
-    }
-    if(m==5){
-        if(d<=21){
-            cout<<"Taurus"<<endl;
-        }
-        else{
-            cout<<"Gemini"<<endl;
-        }
-    }
-    if(m==6){
-        if(d<=21){
-            cout<<"Gemini"<<endl;
-        }
-        else{
-            cout<<"Cancer"<<endl;
-        }
-    }
-    if(m==7){
-        if(d<=22){
-            cout<<"Cancer"<<endl;
-        }
-        else{
-            cout<<"Leo"<<endl;
-        }
-    }
-    if(m==8){
-        if(d<=22){
-            cout<<"Leo"<<endl;
-        }
-        else{
-            cout<<"Virgo"<<endl;
-        }
-    }
-    if(m==9){
-        if(d<=22){
-            cout<<"Virgo"<<endl;
-        }
-        else{
-            cout<<"Libra"<<endl;
-        }
-    }
-    if(m==10){
-        if(d<=23){
-            cout<<"Libra"<<endl;
-        }
-        else{
-            cout<<"Scorpio"<<endl;
-        }
-    }
-    if(m==11){
-        if(d<=22){
-            cout<<"Scorpio"<<endl;
-        }
-        else{
-            cout<<"Sagittarius"<<endl;
-        }
-    }
-    if(m==12){
-        if(d<=21){
-            cout<<"Sagittarius"<<endl;
-        }
-        else{
-            cout<<"Capricorn"<<endl;
-        }
-    }
-}  
+        
+    }  
 }
