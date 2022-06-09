@@ -26,7 +26,7 @@ int main(){
         else if(ansF){
             cout<<str<<" is a multiple of 4."<<endl;
         }
-        else if((ansT == 0)&&(ansF == 0)){
+        else{
             cout<<str<<" is not a multiple of 3 or 4."<<endl;
         }
     }    
