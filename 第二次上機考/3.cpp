@@ -13,6 +13,5 @@ cin>>t;
         else{
             cout<<str[m-1]<<endl;
         }
-        
     }  
 }
