@@ -18,5 +18,8 @@ int main(){
                 count = 1;
         }
     }
-    cout<<sum+n<<endl;
+    if(count!=1){
+        sum+=count;
+    }
+    cout<<sum<<endl;
 }
