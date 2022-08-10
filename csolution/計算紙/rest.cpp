@@ -1,7 +1,6 @@
 #include<iostream>
-#include<vector>
-#include<cctype>
 using namespace std;
 int main(){
-    
+    int a;
+    while(cin>>a) cout<<(a*a*a+5*a+6)/6<<endl;
 }
